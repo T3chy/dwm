@@ -3,6 +3,9 @@
 ## What's special about my fork?
 - use modkey + J and modkey + K to switch focus from one monitor to anotehr
 - use modkey + L and modkey + H to send the selected window to the other monitor!
+- ctrl-g uses dmenu and surf to google whatever u type in (defaults to clipboard if you don't enter anything)
+- ctrl-n uses dmenu to select a playlist (look at my .scripts repo)
+- it's suckless baby! Just read the config.h for all the bindings :)
 kinda vim like ish lol
 
 ## Please install `libxft-bgra`!
