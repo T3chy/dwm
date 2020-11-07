@@ -1,4 +1,4 @@
-# Luke's build of dwm
+# Elam(Actually mostly Luke Smith)'s build of dwm
 
 ## FAQ
 
