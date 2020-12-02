@@ -5,7 +5,7 @@
 #define TERMCLASS "St"
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 20;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -17,12 +17,12 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
 static char dmenufont[]             = "monospace:size=10";
-static char normbgcolor[]           = "#222222";
-static char normbordercolor[]       = "#444444";
+static char normbgcolor[]           = "#000000";
+static char normbordercolor[]       = "#000000";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
 static char selbordercolor[]        = "#770000";
-static char selbgcolor[]            = "#005577";
+static char selbgcolor[]            = "#000000";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -123,8 +123,6 @@ static Key keys[] = {
 	TAGKEYS(			XK_7,		6)
 	TAGKEYS(			XK_8,		7)
 	TAGKEYS(			XK_9,		8)
-	{ MODKEY|ShiftMask,                       XK_k, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,                       XK_j, focusmon,       {.i = +1 } },
 	{MODKEY|ShiftMask, XK_l, tagmon,         {.i = +1 } },
 	{MODKEY|ShiftMask, XK_h, tagmon,         {.i = +1 } },
 	{ MODKEY,			XK_0,		view,		{.ui = ~0 } },
@@ -133,7 +131,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_minus,	spawn,		SHCMD("pamixer --allow-boost -d 15; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,			XK_equal,	spawn,		SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY|ShiftMask,		XK_equal,	spawn,		SHCMD("pamixer --allow-boost -i 15; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY,			XK_BackSpace,	spawn,		SHCMD("sysact") },
+	{ MODKEY,			XK_BackSpace,	spawn,		SHCMD("slock") },
 	{ MODKEY|ShiftMask,		XK_BackSpace,	spawn,		SHCMD("sysact") },
 
 	{ MODKEY,			XK_Tab,		view,		{0} },
@@ -175,9 +173,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_f,		setlayout,	{.v = &layouts[8]} },
 	{ MODKEY,			XK_g,		spawn,	        SHCMD(" google")},
 	{ MODKEY|ShiftMask,		XK_g,		shifttag,	{ .i = -1 } },
-	{ MODKEY,			XK_h,		setmfact,	{.f = -0.05} },
+	{ MODKEY|ShiftMask,			XK_j,		setmfact,	{.f = -0.05} },
 	/* J and K are automatically bound above in STACKEYS */
-	{ MODKEY,			XK_l,		setmfact,      	{.f = +0.05} },
+	{ MODKEY|ShiftMask,			XK_k,		setmfact,      	{.f = +0.05} },
 	{ MODKEY,			XK_semicolon,	shiftview,	{ .i = 1 } },
 	{ MODKEY|ShiftMask,		XK_semicolon,	shifttag,	{ .i = 1 } },
 	{ MODKEY,			XK_apostrophe,	togglescratch,	{.ui = 1} },
@@ -185,11 +183,11 @@ static Key keys[] = {
 	{ MODKEY,			XK_Return,	spawn,		{.v = termcmd } },
 	{ MODKEY|ShiftMask,		XK_Return,	togglescratch,	{.ui = 0} },
 
-	{ MODKEY,			XK_z,		incrgaps,	{.i = +3 } },
+	{ MODKEY|ShiftMask,			XK_z,		incrgaps,	{.i = +3 } },
 	/* { MODKEY|ShiftMask,		XK_z,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_x,		incrgaps,	{.i = -3 } },
 	/* { MODKEY|ShiftMask,		XK_x,		spawn,		SHCMD("") }, */
-	 { MODKEY,			XK_c,		spawn,		SHCMD("zclasses") },
+	 { MODKEY,			XK_z,		spawn,		SHCMD("zclasses") },
 	/* { MODKEY|ShiftMask,		XK_c,		spawn,		SHCMD("") }, */
 	/* V is automatically bound above in STACKKEYS */
 	{ MODKEY,			XK_b,		togglebar,	{0} },
@@ -203,9 +201,9 @@ static Key keys[] = {
 	{ MODKEY,			XK_period,	spawn,		SHCMD("mpc next") },
 	{ MODKEY|ShiftMask,		XK_period,	spawn,		SHCMD("mpc repeat") },
 
-	{ MODKEY,			XK_Left,	focusmon,	{.i = -1 } },
+	{ MODKEY,			XK_h,	focusmon,	{.i = -1 } },
 	{ MODKEY|ShiftMask,		XK_Left,	tagmon,		{.i = -1 } },
-	{ MODKEY,			XK_Right,	focusmon,	{.i = +1 } },
+	{ MODKEY,			XK_l,	focusmon,	{.i = +1 } },
 	{ MODKEY|ShiftMask,		XK_Right,	tagmon,		{.i = +1 } },
 
 	{ MODKEY,			XK_Page_Up,	shiftview,	{ .i = -1 } },
