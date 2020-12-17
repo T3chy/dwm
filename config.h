@@ -199,6 +199,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_m,		spawn,		SHCMD(TERMINAL " -e ncmpcpp") },
 	{ MODKEY|ShiftMask,		XK_m,		spawn,		SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,		XK_o,		spawn,		SHCMD(TERMINAL " -g 120x34 -n notes -e notes")},
+	{ MODKEY|ShiftMask,		XK_o,		spawn,		SHCMD(TERMINAL " -g 120x34 -e openLastNote")},
 	{ MODKEY,			XK_comma,	spawn,		SHCMD("mpc prev") },
 	{ MODKEY|ShiftMask,		XK_comma,	spawn,		SHCMD("mpc seek 0%") },
 	{ MODKEY,			XK_period,	spawn,		SHCMD("mpc next") },
