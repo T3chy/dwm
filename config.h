@@ -56,6 +56,9 @@ static const Rule rules[] = {
 	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     0,	       1,           1,         0,        -1 },
 	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     0,	       1,           1,         0,        -1 },
 	{NULL,   NULL, 	"notes",	    	     	0,        1,	       1,           1,         0,        -1 },
+	{NULL,   NULL, 	"takeRealNote",	    	     	0,        1,	       1,           1,         0,        -1 },
+	{NULL,   NULL, 	"viewRealNote",	    	     	0,        1,	       1,           1,         0,        -1 },
+	{NULL,   NULL, 	"viewLastNote",	    	     	0,        1,	       1,           1,         0,        -1 },
 };
 
 /* layout(s) */
@@ -152,12 +155,11 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_y,		setlayout,	{.v = &layouts[3]} }, /* dwindle */
 	{ MODKEY,			XK_u,		setlayout,	{.v = &layouts[4]} }, /* deck */
 	{ MODKEY|ShiftMask,		XK_u,		setlayout,	{.v = &layouts[5]} }, /* monocle */
-	{ MODKEY,			XK_i,		setlayout,	{.v = &layouts[6]} }, /* centeredmaster */
-	{ MODKEY|ShiftMask,		XK_i,		setlayout,	{.v = &layouts[7]} }, /* centeredfloatingmaster */
+	{ MODKEY|ShiftMask,		XK_p,		setlayout,	{.v = &layouts[7]} }, /* centeredfloatingmaster */
 	/* { MODKEY,			XK_o,		incnmaster,     {.i = +1 } }, */
 	/* { MODKEY|ShiftMask,		XK_o,		incnmaster,     {.i = -1 } }, */
 	{ MODKEY,			XK_p,			spawn,		SHCMD("mpc toggle") },
-	{ MODKEY|ShiftMask,		XK_p,			spawn,		SHCMD("mpc pause ; pauseallmpv") },
+	/* { MODKEY|ShiftMask,		XK_p,			spawn,		SHCMD("mpc pause ; pauseallmpv") }, */
 	{ MODKEY,			XK_bracketleft,		spawn,		SHCMD("mpc seek -10") },
 	{ MODKEY|ShiftMask,		XK_bracketleft,		spawn,		SHCMD("mpc seek -60") },
 	{ MODKEY,			XK_bracketright,	spawn,		SHCMD("mpc seek +10") },
@@ -199,6 +201,8 @@ static Key keys[] = {
 	{ MODKEY,			XK_m,		spawn,		SHCMD(TERMINAL " -e ncmpcpp") },
 	{ MODKEY|ShiftMask,		XK_m,		spawn,		SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,		XK_o,		spawn,		SHCMD(TERMINAL " -g 120x34 -n notes -e notes")},
+	{ MODKEY,		XK_i,		spawn,		SHCMD(TERMINAL " -g 120x34 -n notes -e takeRealNote")},
+	{ MODKEY|ShiftMask,		XK_i,		spawn,		SHCMD(TERMINAL " -g 120x34 -n notes -e viewRealNote")},
 	{ MODKEY|ShiftMask,		XK_o,		spawn,		SHCMD(TERMINAL " -g 120x34 -e openLastNote")},
 	{ MODKEY,			XK_comma,	spawn,		SHCMD("mpc prev") },
 	{ MODKEY|ShiftMask,		XK_comma,	spawn,		SHCMD("mpc seek 0%") },
