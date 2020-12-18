@@ -57,8 +57,6 @@ static const Rule rules[] = {
 	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     0,	       1,           1,         0,        -1 },
 	{NULL,   NULL, 	"notes",	    	     	0,        1,	       1,           1,         0,        -1 },
 	{NULL,   NULL, 	"takeRealNote",	    	     	0,        1,	       1,           1,         0,        -1 },
-	{NULL,   NULL, 	"viewRealNote",	    	     	0,        1,	       1,           1,         0,        -1 },
-	{NULL,   NULL, 	"viewLastNote",	    	     	0,        1,	       1,           1,         0,        -1 },
 };
 
 /* layout(s) */
